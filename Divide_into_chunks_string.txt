@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign5</title>
+
+<head>
+    <script>
+        function chop(){
+            var s = document.getElementById("first").value;
+            var n = document.getElementById("sec").value;        
+            var a = new Array();
+            if(n == 0){
+                a.push(s);
+            }else{
+                var l = 0;
+                while (l < s.length) {
+                    var ch = "";
+                    for (var i = 0; i < n; i++) {
+                        ch += s.charAt(l);
+                        l++;
+                    }
+                    a.push(ch);
+                }
+            }
+            document.getElementById("ans").value = a;
+        }
+    </script>
+</head>
+<body>
+    Enter the word here: <input id="first"><br>
+    Enter the number here: <input id="sec"><br>
+    ans <input id="ans">
+    <input type="button" onclick="chop()" value="Chop" />
+</body>
+</html>

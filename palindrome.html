@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+    <script>
+    function f1()
+    {
+        var name=document.getElementById('string').value;
+        var result=f2(name);
+        window.alert("The string is:"+result);
+    }
+    function f2(str)
+    {
+        str = str.toLowerCase();
+			var nstr= str;
+			str = str.split(''); //split the entered string 
+			str = str.reverse(); //reverse the order 
+        str = str.join(''); //then join the reverse order array values
+			alert('The Entered String "'+str);
+			if(nstr == str)
+			{
+				return 'Palindrome'; 
+			}
+			else
+			{
+				return 'Not Palindrome';
+			}
+    }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="string" placeholder="Enter string">
+    <input type="button" onclick="f1()" value="check">
+    </form>
+</body>
+</html>

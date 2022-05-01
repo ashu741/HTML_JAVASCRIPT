@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function evil() {
+            var a = 0;
+            var n = parseInt(document.getElementById("first").value);
+            while(n > 0){
+                var m = parseInt(n%2);
+                if(m == 1)  a += 1;
+                n = parseInt(n/2);
+            }
+            if(a%2 == 0)
+                document.getElementById("ans").value = "Evil Number";
+            else
+                document.getElementById("ans").value = "Not Evil Number";
+
+        }
+    </script>
+</head>
+
+<body>
+    <b>Enter the number (N) here:</b><input id="first">
+    <b>OUTPUT</b> <input id="ans">
+    <input type="button" onclick="evil()" value="Check" />
+    
+</body>
+</html>

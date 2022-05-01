@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function occur() {
+            var s = document.getElementById("first").value;
+            var arr = new Array(26);
+            var t = 'a';
+            for(var i = 0 ; i < 26 ; i++ )  arr[i] = 0;
+            for(var i = 0 ; i < s.length ; i++ ){
+                arr[s.charCodeAt(i)-t.charCodeAt(0)]++;
+            }
+            document.getElementById("ans").value = arr;
+        }
+    </script>
+</head>
+
+<body>
+    Enter the word here: <input id="first">
+    ans <input id="ans">
+    <input type="button" onclick="occur()" value="Occur" />
+</body>
+
+</html>

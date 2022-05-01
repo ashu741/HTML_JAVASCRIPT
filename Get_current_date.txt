@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<html>
-  
+<html lang="en">
 <head>
-    <title>How to get current date in JavaScript?</title>
+<title>Document</title>
+<script>
+function getDate() {
+d = new Date();
+return d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
+}
+</script>
 </head>
-  
 <body>
-    <b>How to get current date in JavaScript?</b>
-      
-<p> Current Date is: <span id="output"></span></p>
-  
-    <button onclick="getCurrentDate()">Get current Date</button>
-      
-    <script>
-    function getCurrentDate() {
-        let date = new Date().toDateString();
-        document.getElementById("output").innerHTML= date;
-    }
-    </script>
 </body>
-  
 </html>

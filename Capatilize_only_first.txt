@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function capitalize(){
+            var s = document.getElementById("first").value;
+            var a = "";
+            for(var i = 0 ; i < s.length ; i++ ){
+                var ch;
+                if(i == 0){
+                    ch = s.charAt(i).toUpperCase();
+                }else if(s.charAt(i-1) == ' '){
+                    ch = s.charAt(i).toUpperCase();
+                }else
+                    ch = s.charAt(i).toLowerCase();
+                a += ch;
+            }
+            document.getElementById("answer: ").value = a;
+        }
+    </script>
+</head>
+<body>
+    Enter the word here: <input id="first">
+    Answer : <input id="answer: ">
+    <input type="button" onclick="capitalize()" value="Capitalize" />
+</body>
+</html>

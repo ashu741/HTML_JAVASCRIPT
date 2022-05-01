@@ -1,0 +1,555 @@
+Assignment 7
+
+Q1. Validate following input values using javascript
+i.	Name
+ii.	Email Id
+iii.	Phone Number
+iv.	Aadhar Number
+v.	Pin Code
+vi.	Enrollment Number
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        div.myForm
+        {
+            display: table;
+        }
+        label,input
+        {
+            display: table-cell;
+            padding: 4px;
+            margin: 3px;
+        }
+        button
+        {
+            padding: 10px;
+            margin-top: 15px;
+            margin-left: 60px;
+            background-color: rgb(24, 160, 228);
+            border-radius: 4px;
+        }
+    </style>
+    <script>
+        function check()
+        {
+            let name=document.getElementById("name");
+            let phone=document.getElementById("mobileNo");
+            let email=document.getElementById("emailid");
+            let adhar=document.getElementById("aadhar");
+            let pin=document.getElementById("pinCode");
+            // let enroll=document.getElementById("enroll");
+            var nm=/^[A-Z][a-z]*[\s]?[A-Za-z]*$/
+            //console.log(nm.test(name.value));
+            if(!nm.test(name.value))
+            {
+                alert("Enter a valid name int the format Abc Abc or Abc");
+                return false;
+            }
+            var em=/^[a-zA-z]+[0-9]*[@]gmail.com$/
+            console.log(em.test(email.value));
+            if(!em.test(email.value))
+            {
+                alert("Enter a valid email id in the format abc@gmil.com or abc123@gmail.com ");
+                return false;;
+            }
+            var ph=/^([+]\d{2})?\d{10}$/;
+            if(!ph.test(phone.value))
+            {
+                alert("Enter a valid phone number in the format +91xxxxxxxxxx or xxxxxxxxxx");
+                return false;;
+            }
+            var adh=/\d{4}[\s]\d{4}[\s]\d{4}$/
+            if(!adh.test(adhar.value))
+            {
+                alert("Enter a valid aadhar number in the format xxxx xxxx xxxx");
+                return false;;
+            }
+            var pinC=/^\d{6}$/
+            if(!pinC.test(pin.value))
+            {
+                alert("Enter a valid pin code in the format xxxxxx");
+                return false;;
+            }
+            var en=/GE-\d{9}$/
+            if(!en.test(enroll.value))
+            {
+                alert("Enter a valid Enrollment Number in the format GE-xxxxxxxxx");
+                return false;;
+            }
+        }
+    </script>
+</head>
+<body>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="emailid">Email Id</label>
+            <input type="text" id="emailid">
+        </div>
+        <div>
+            <label for="mobileNo">Mobile No</label>
+            <input type="text" id="mobileNo">
+        </div>
+        <div>
+            <label for="aadhar">Aadhar Number</label>
+            <input type="text" id="aadhar">
+        </div>
+        <div>
+            <label for="pinCode">Pin Code</label>
+            <input type="text" id="pinCode">
+        </div>
+        <div>
+            <label for="enroll">Enroll Number</label>
+            <input type="text" id="enroll">
+        </div>
+        <button onclick="check()">Submit</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Output
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+Assignment 8
+
+Q1.Write a JavaScript function to get the current date.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getDate()">Get Current Date</button>
+    <input type="text" name="date" id="date">
+    <script>
+        function getDate(){
+            var today=new Date();
+            let dd=today.getDate();
+            let mm=today.getMonth()+1;
+            let yy=today.getFullYear();
+            if(dd<10)
+                dd='0'+dd;
+            if(mm<10)
+                mm='0'+mm;
+            let ans=dd+'-'+mm+'-'+yy;
+            document.getElementById("date").value=ans;
+        }
+    </script>
+</body>
+</html>
+
+
+Output
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q2.Write a JavaScript function to get the number of days in a month
+Test Data :
+console.log(getDaysInMonth(1, 2012));
+console.log(getDaysInMonth(2, 2012));
+console.log(getDaysInMonth(9, 2012));
+console.log(getDaysInMonth(12, 2012));
+Output :
+31
+29
+30
+31
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .inp{
+            margin: 2px;
+            padding: 5px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    Enter month <input class="inp" type="number" max="12" min="1" id="mm"> 
+    Enter year <input class="inp" type="number" id="yy" min="1900" max="2100"> 
+    <button onclick="getDays()">Get number of Days</button>
+    <input type="text" class="inp" name="days" id="days">
+    <script>
+        function getDays(){
+            let month=document.getElementById("mm").value;
+            let year=document.getElementById("yy").value;
+            let date=new Date(year,month,0).getDate();
+            document.getElementById("days").value=date;
+        }
+    </script>
+</body>
+</html>
+
+Output
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q3.Write a JavaScript function to get the month name from a particular date
+Test Data :
+console.log(month_name(new Date("10/11/2009")));
+console.log(month_name(new Date("11/13/2014")));
+Output :
+"October"
+"November"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter date <input type="date" name="date" id="date">
+    <br>
+    <button onclick="getmonth()"> Get Month</button>
+    <input type="text" name="month" id="month">
+    <script>
+        function getmonth()
+        {
+            let dt=document.getElementById("date").value;
+            var date=new Date(dt);
+            mlist = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+            document.getElementById("month").value=mlist[date.getMonth()];
+        }
+    </script>
+</body>
+</html>
+Output
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q4. Write a JavaScript program to display the current day and time in the following format.  
+Sample Output : 
+Today is : Friday. 
+Current time is : 4 PM : 50 : 22
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="getDayandTime()">
+        Click me to get current day and time
+    </button>
+    <h3 id="day"></h3>
+    <h3 id="time"></h3>
+    <script>
+        function getDayandTime()
+        {
+            var today=new Date();
+            var day=today.getDay();
+            var dayList=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+            document.getElementById("day").innerHTML="Today is : "+dayList[day];
+            var hour = today.getHours();
+            var minute = today.getMinutes();
+            var second = today.getSeconds();
+            var prepand = (hour >= 12)? " PM ":" AM ";
+            document.getElementById("time").innerHTML="Current Time : "+hour+prepand+" : "+minute+" : "+second;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Output
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q6.  Write a JavaScript function to get difference between two dates in days. 
+Test Data :
+console.log(date_diff_indays('04/02/2014', '11/04/2014'));
+console.log(date_diff_indays('12/02/2014', '11/04/2014'));
+Output :
+216
+-28
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter first date <input type="date" name="date1" id="date1">
+    <br>
+    Enter second date <input type="date" name="date2" id="date2">
+    <br>
+    <button onclick="getDiff()"> Get Difference </button>
+    <input type="text" name="ans" id="ans">
+    <script>
+        function getDiff(){
+            var dt1=new Date(document.getElementById("date1").value);
+            var dt2=new Date(document.getElementById("date2").value);
+            let ans=Math.floor((Date.UTC(dt2.getFullYear(),dt2.getMonth(),dt2.getDate())-Date.UTC(dt1.getFullYear(),dt1.getMonth(),dt1.getDate()))/(1000 * 60 * 60 * 24));
+            document.getElementById("ans").value=ans;
+        }
+    </script>
+</body>
+</html>
+
+
+
+Output
+ 
+
+

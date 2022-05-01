@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month</title>
+    <script>
+        function vari()
+        {
+            window.alert("Called")
+            var date=document.getElementById("date").value;
+            window.alert(date);
+            var month=date.getMonth();
+            var list=[ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+            window.alert(list[month]);
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <label>Enter date</label>
+            </td>
+            <td>
+                <input type="date" id="date">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="vari()">Submit</button></td>
+        </tr>
+    </table>
+</body>
+</html>

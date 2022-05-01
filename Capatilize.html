@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capatilize</title>
+    <script>
+        function f1(string)
+        {
+            var arr=string.split(" ");
+            var ans="";
+            for(var i of arr)
+            {
+                ans+=i.charAt(0).toUpperCase()+i.slice(1);
+            }
+            return ans;
+        }
+        var string=window.prompt("Enter string")
+        window.alert("result= "+f1(string));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
